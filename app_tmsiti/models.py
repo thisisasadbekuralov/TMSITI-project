@@ -41,3 +41,47 @@ class Announcement(AbstractBaseModel):
         verbose_name = 'Announcement'
         verbose_name_plural = 'Announcements'
 
+
+class Management(AbstractBaseModel):
+    name = models.CharField(max_length=100, null=False, blank=False)
+    image = models.ImageField(upload_to='management_images/')
+    role = models.CharField(max_length=100, null=False, blank=False)
+    email = models.EmailField(null=False, blank=False)
+    study = models.CharField(max_length=100, null=False, blank=False)
+    phone = models.CharField(max_length=100, null=False, blank=False)
+    days_of_work = models.CharField(max_length=100, null=False, blank=False)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'management'
+        verbose_name = 'Management'
+        verbose_name_plural = 'Managements'
+
+
+class StructuralDivision(AbstractBaseModel):
+    name = models.CharField(max_length=100, null=False, blank=False)
+    role = models.CharField(max_length=100, null=False, blank=False)
+    image = models.ImageField(upload_to='structural_division_images/')
+    email = models.EmailField(null=False, blank=False)
+    phone = models.CharField(max_length=100, null=False, blank=False)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'structural_division'
+        verbose_name = 'Structural Division'
+
+        verbose_name_plural = 'Structural Divisions'
+
+
+class Standard(AbstractBaseModel):
+    code = models.CharField(max_length=100, null=False, blank=False)
+    text = models.TextField(null=False, blank=False)
+
+
+
+
+

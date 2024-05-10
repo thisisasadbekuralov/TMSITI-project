@@ -1,7 +1,7 @@
-from rest_framework.permissions import BasePermissions
+from rest_framework.permissions import BasePermission
 
 
-class Permissions(BasePermissions):
+class Permissions(BasePermission):
 
     def has_permission(self, request, view):
         if request.method == "GET":
