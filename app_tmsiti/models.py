@@ -82,6 +82,41 @@ class Standard(AbstractBaseModel):
     text = models.TextField(null=False, blank=False)
 
 
+class Contact(models.Model):
+    name = models.CharField(max_length=100, null=False, blank=False)
+    email = models.EmailField(null=False, blank=False)
+    phone_number = models.CharField(max_length=100, null=False, blank=False)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'contact'
+
+
+class ElectronicFunds(AbstractBaseModel):
+    code = models.CharField(max_length=100, null=False, blank=False)
+    name = models.CharField(max_length=100, null=False, blank=False)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'electronic_funds'
+
+
+class BuildingRegulation(AbstractBaseModel):
+    number = models.IntegerField(null=False, blank=False)
+    name = models.CharField(max_length=100, null=False, blank=False)
+    code = models.CharField(max_length=100, null=False, blank=False)
+    document = models.FileField(upload_to='building_regulations/')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'building_regulations'
+
 
 
 

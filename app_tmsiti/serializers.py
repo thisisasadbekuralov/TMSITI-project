@@ -1,4 +1,4 @@
-from .models import News, Announcement, Management, StructuralDivision, Standard
+from .models import News, Announcement, Management, StructuralDivision, Standard, ElectronicFunds, BuildingRegulation
 
 from rest_framework import serializers
 
@@ -34,3 +34,24 @@ class StandardSerializer(serializers.ModelSerializer):
         model = Standard
         fields = '__all__'
         read_only_fields = ('created_at', 'updated_at')
+
+
+class ContactSerializer(serializers.Serializer):
+    phone_number = serializers.CharField(max_length=11)
+    email = serializers.EmailField()
+    name = serializers.CharField(max_length=50)
+
+
+class ElectronicFundsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ElectronicFunds
+        fields = '__all__'
+        read_only_fields = ('created_at', 'updated_at')
+
+
+class BuildingRegulationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BuildingRegulation
+        fields = '__all__'
+        read_only_fields = ('created_at', 'updated_at')
+
